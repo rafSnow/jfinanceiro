@@ -2,7 +2,7 @@ import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClientInstance } from '@/lib/query-client';
-import { HashRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AuthProvider } from '@/lib/AuthContext';
 import PageNotFound from '@/lib/PageNotFound';
@@ -47,7 +47,7 @@ function AnimatedRoutes() {
         animate="center"
         exit="exit"
         transition={{ type: 'tween', duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
-        style={{ position: 'absolute', inset: 0, willChange: 'transform' }}
+        style={{ position: 'relative', willChange: 'transform' }}
       >
         <Routes location={location}>
           <Route path="/" element={<Home />} />
@@ -68,7 +68,7 @@ function App() {
         <QueryClientProvider client={queryClientInstance}>
           <Router>
             <ScrollToTop />
-            <div style={{ position: 'relative', overflow: 'hidden', minHeight: '100dvh' }}>
+            <div style={{ position: 'relative', minHeight: '100dvh' }}>
               <AnimatedRoutes />
             </div>
           </Router>

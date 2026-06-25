@@ -2,33 +2,33 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const colorMap = {
+  neutral: {
+    text: 'text-foreground',
+    iconBg: 'bg-primary/10',
+    icon: 'text-primary'
+  },
   green: {
-    bg: 'bg-emerald-45 dark:bg-emerald-950/50',
-    text: 'text-emerald-700 dark:text-emerald-400',
+    text: 'text-emerald-600 dark:text-emerald-400',
     iconBg: 'bg-emerald-100 dark:bg-emerald-900/50',
     icon: 'text-emerald-600 dark:text-emerald-400'
   },
   blue: {
-    bg: 'bg-sky-45 dark:bg-sky-950/50',
-    text: 'text-sky-700 dark:text-sky-400',
+    text: 'text-sky-600 dark:text-sky-400',
     iconBg: 'bg-sky-100 dark:bg-sky-900/50',
     icon: 'text-sky-600 dark:text-sky-400'
   },
   red: {
-    bg: 'bg-rose-45 dark:bg-rose-950/50',
-    text: 'text-rose-700 dark:text-rose-400',
+    text: 'text-rose-600 dark:text-rose-400',
     iconBg: 'bg-rose-100 dark:bg-rose-900/50',
     icon: 'text-rose-600 dark:text-rose-400'
   },
   amber: {
-    bg: 'bg-amber-45 dark:bg-amber-950/50',
-    text: 'text-amber-700 dark:text-amber-400',
+    text: 'text-amber-600 dark:text-amber-400',
     iconBg: 'bg-amber-100 dark:bg-amber-900/50',
     icon: 'text-amber-600 dark:text-amber-400'
   },
   purple: {
-    bg: 'bg-violet-45 dark:bg-violet-950/50',
-    text: 'text-violet-700 dark:text-violet-400',
+    text: 'text-violet-600 dark:text-violet-400',
     iconBg: 'bg-violet-100 dark:bg-violet-900/50',
     icon: 'text-violet-600 dark:text-violet-400'
   }
@@ -61,16 +61,16 @@ export default function SummaryCard({
         ease: [0.25, 0.1, 0.25, 1]
       }}
       className={`
-        ${c.bg}
+        bg-card
         rounded-[22px]
         p-4
         flex
         flex-col
         gap-2.5
         border
-        border-white/20
-        shadow-2xl
-        hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)]
+        border-border/40
+        shadow-sm
+        hover:shadow-md
         transition-all
         duration-300
       `}

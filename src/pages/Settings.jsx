@@ -117,19 +117,19 @@ export default function Settings() {
     if (!deferredPrompt) return;
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') toast({ title: 'App instalado!', description: 'Acesse pelo ícone na tela inicial.' });
+    if (outcome === 'accepted') toast({ title: 'App instalado!', description: 'Acesse pelo ícone na tela inicial.', duration: 1000 });
   };
 
   const handleDeleteAllData = () => {
     TransactionService.clearAll();
-    toast({ title: 'Dados excluídos', description: 'Todas as suas transações foram removidas.' });
+    toast({ title: 'Dados excluídos', description: 'Todas as suas transações foram removidas.', duration: 1000 });
     setShowDeleteConfirm(false);
   };
 
   return (
-    <div className="min-h-screen bg-background pb-36">
+    <div className="min-h-screen bg-background flex flex-col">
       <div
-        className="sticky top-0 z-30 bg-background/85 backdrop-blur-xl"
+        className="sticky top-0 z-30 bg-background/85 backdrop-blur-xl shrink-0"
         style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
       >
         <div className="max-w-lg mx-auto px-5 h-14 flex items-center">
@@ -137,7 +137,8 @@ export default function Settings() {
         </div>
       </div>
 
-      <div className="max-w-lg mx-auto px-5 pt-4">
+      <div className="flex-1 overflow-y-auto max-w-lg mx-auto w-full px-5 pt-4"
+        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 140px)' }}>
         <Section title="Conta">
           <Row icon={Shield} label="Privacidade" sublabel="Gerencie seus dados" last={false} />
           <Row icon={Bell} label="Notificações" sublabel="Alertas de vencimento" last={false} />
@@ -200,7 +201,7 @@ export default function Settings() {
         )}
 
         <Section title="Sobre">
-          <Row icon={Info} label="Dolce Finance" sublabel="Versão 1.0.0" last rightSlot={<span className="text-[12px] text-muted-foreground">v1.0.0</span>} />
+          <Row icon={Info} label="Neves Finance" sublabel="Versão 1.0.0" last rightSlot={<span className="text-[12px] text-muted-foreground">v1.0.0</span>} />
         </Section>
 
         <Section title="Zona de perigo">

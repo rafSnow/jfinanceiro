@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 const TOAST_LIMIT = 20;
-const TOAST_REMOVE_DELAY = 1000000;
+const TOAST_REMOVE_DELAY = 300;
 
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
@@ -110,7 +110,7 @@ function dispatch(action) {
   });
 }
 
-function toast({ ...props }) {
+function toast({ duration, ...props }) {
   const id = genId();
 
   const update = (props) =>
@@ -119,8 +119,21 @@ function toast({ ...props }) {
       toast: { ...props, id },
     });
 
-  const dismiss = () =>
+  let autoDismissTimeout;
+
+  const dismiss = () => {
+    if (autoDismissTimeout) {
+      clearTimeout(autoDismissTimeout);
+      autoDismissTimeout = undefined;
+    }
     dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });
+  };
+
+  if (typeof duration === 'number' && duration > 0) {
+    autoDismissTimeout = setTimeout(() => {
+      dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });
+    }, duration);
+  }
 
   dispatch({
     type: actionTypes.ADD_TOAST,

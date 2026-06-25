@@ -42,10 +42,10 @@ export default function People() {
   const selected = people.find(p => p.name === selectedPerson);
 
   return (
-    <div className="min-h-screen bg-background pb-36">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Safe-area-aware sticky header */}
       <div
-        className="sticky top-0 z-30 bg-background/85 backdrop-blur-xl"
+        className="sticky top-0 z-30 bg-background/85 backdrop-blur-xl shrink-0"
         style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
       >
         <div className="max-w-lg mx-auto px-5 h-14 flex items-center gap-3">
@@ -67,7 +67,8 @@ export default function People() {
         </div>
       </div>
 
-      <div className="max-w-lg mx-auto px-5 pt-4">
+      <div className="flex-1 overflow-y-auto max-w-lg mx-auto w-full px-5 pt-4"
+        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 140px)' }}>
         {!selectedPerson && (
           <div className="mb-5">
             <MonthSelector value={month} onChange={setMonth} />

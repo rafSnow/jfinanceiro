@@ -55,12 +55,12 @@ export default function Transactions() {
   const handleSave = (data) => {
     if (editData) {
       setTransactions(prev => prev.map(t => t.id === editData.id ? { ...t, ...data } : t));
-      toast({ title: 'Transação atualizada' });
+      toast({ title: 'Transação atualizada', duration: 1000 });
       TransactionService.update(editData.id, data);
     } else {
       const newItem = TransactionService.create(data);
       setTransactions(prev => [newItem, ...prev]);
-      toast({ title: 'Transação adicionada' });
+      toast({ title: 'Transação adicionada', duration: 1000 });
     }
     setEditData(null);
     load();
@@ -68,7 +68,7 @@ export default function Transactions() {
 
   const handleDelete = (t) => {
     setTransactions(prev => prev.filter(x => x.id !== t.id));
-    toast({ title: 'Transação excluída' });
+    toast({ title: 'Transação excluída', duration: 1000 });
     TransactionService.delete(t.id);
     load();
   };
@@ -105,7 +105,8 @@ export default function Transactions() {
       </div>
 
       {/* Scrollable content */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto pb-36 relative">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto relative"
+        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 120px)' }}>
         <PullRefreshIndicator pullDistance={pullDistance} refreshing={refreshing} progress={progress} />
 
         <div

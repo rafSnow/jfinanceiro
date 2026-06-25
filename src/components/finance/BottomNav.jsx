@@ -42,9 +42,8 @@ export default function BottomNav() {
   }, [pathname, activeTab, navigate]);
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-[9999] safe-area-bottom">
-      <div className="mx-4 mb-20">
-        <div className="bg-card/80 backdrop-blur-2xl rounded-[26px] border border-border/40 shadow-lg shadow-black/5 flex justify-around items-center h-[60px] px-2 max-w-lg mx-auto">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg z-50 px-4 pb-4" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)' }}>
+      <div className="bg-card/80 backdrop-blur-2xl rounded-[26px] border border-border/40 shadow-lg shadow-black/5 flex justify-around items-center h-[60px] px-2">
           {tabs.map((tab) => {
             const active = activeTab === tab.path;
             const Icon = tab.icon;
@@ -64,7 +63,6 @@ export default function BottomNav() {
               </button>
             );
           })}
-        </div>
       </div>
     </nav>
   );

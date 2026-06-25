@@ -4,15 +4,14 @@ import path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: './',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['icons/icon.svg', 'icons/apple-touch-icon.png', 'icons/favicon-32.png'],
       manifest: {
-        name: 'Dolce Finance',
-        short_name: 'Dolce',
+        name: 'Neves Finance',
+        short_name: 'Neves',
         description: 'Controle financeiro pessoal',
         theme_color: '#0080FF',
         background_color: '#F7F7F7',
