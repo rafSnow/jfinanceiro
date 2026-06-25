@@ -1,0 +1,49 @@
+{
+  "name": "Ingredient",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do ingrediente"
+    },
+    "unit_weight_ml": {
+      "type": "number",
+      "description": "g/ml por unidade"
+    },
+    "price_paid": {
+      "type": "number",
+      "description": "Valor pago"
+    },
+    "recipe_quantity": {
+      "type": "number",
+      "description": "Quantidade usada na receita (g/ml)"
+    },
+    "available_quantity": {
+      "type": "number",
+      "description": "Quantidade dispon\u00edvel"
+    },
+    "purchase_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data da compra"
+    }
+  },
+  "required": [
+    "name",
+    "price_paid"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
