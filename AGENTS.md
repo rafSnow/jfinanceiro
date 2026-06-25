@@ -391,7 +391,7 @@ npm run preview      # Preview do build
 
 ### localStorage
 
-- Prefixo de keys: `dolce_` (ex: `dolce_transactions`)
+- Prefixo de keys: `nevesfinance_` (ex: `nevesfinance_transactions`)
 - Dados persistem entre sessões
 - Usar `TransactionService` para todas as operações
 

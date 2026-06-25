@@ -1,4 +1,4 @@
-const PREFIX = 'dolce_';
+const PREFIX = 'nevesfinance_';
 
 function read(key) {
   const raw = localStorage.getItem(PREFIX + key);

@@ -100,7 +100,7 @@ export default function Home(){
             <motion.div
               initial={{ opacity:0, scale:.97 }}
               animate={{ opacity:1, scale:1 }}
-              className="mt-5 rounded-[30px] p-6 relative overflow-hidden bg-card border border-border/50 shadow-lg"
+              className="mt-5 rounded-[30px] p-6 relative overflow-hidden bg-card border border-border/50 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="absolute right-0 top-0 w-48 h-48 rounded-full bg-primary/10 blur-3xl" />
               <p className="text-xs uppercase tracking-[.18em] text-muted-foreground">Saldo do Mês</p>

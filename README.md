@@ -347,7 +347,7 @@ interface Transaction {
 
 ```javascript
 // Chave prefixada para evitar colisões
-const PREFIX = 'dolce_';
+const PREFIX = 'nevesfinance_';
 
 StorageService.list(key, sort?)        // Lista todos
 StorageService.filter(key, query)      // Filtra por critérios
